@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-color: black;
+    background-image: linear-gradient(rgb(100, 0, 0), rgb(89, 0, 148));
 }
 
 table .shown{
