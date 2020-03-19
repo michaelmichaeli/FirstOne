@@ -260,7 +260,6 @@ function cellContent(i, j) {
 
 function checkGameStatus(i, j, isRightClick) {
     if (gBoard[i][j].isMine && !isRightClick) {
-        debugger
         if (gGame.lives > 0) {
             gGame.lives--;
             var elLive = document.querySelector(".lives ul li");
