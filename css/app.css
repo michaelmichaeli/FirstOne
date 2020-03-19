@@ -46,7 +46,7 @@ li {
     float: center;
     padding: 10px;
     margin: 10px
-    
+    box-shadow: 1px 1px 50px rgb(255, 255, 255);
 }
 table {
     margin: auto;
@@ -61,7 +61,7 @@ table {
     width: 120px;
     float: none;
     width: 200px;
-
+    box-shadow: 1px 1px 50px rgb(255, 255, 255);
 }
 
 .lives {
@@ -72,6 +72,7 @@ table {
     cursor: default;
     float: none;
     width: 200px;
+    box-shadow: 1px 1px 50px rgb(255, 255, 255);
 }
 
 .time p {
@@ -117,6 +118,7 @@ button {
     border-radius: 20px;
     /* margin-top: 30px; */
     background-color: #548a49;
+    box-shadow: 1px 1px 50px rgb(255, 255, 255);
 }
 
 button:hover {
