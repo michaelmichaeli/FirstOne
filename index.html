@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine Sweeper</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body onload="initGame(8,12)" oncontextmenu="return false;">
+    <h1>Minesweeper</h1>
+    <div class="center">
+        
+        <div class="time">
+            <p class="timer">0</p>
+        </div>
+        
+        <div class="smiley">
+        </div>
+        
+        <div class="lives">
+        </div>
+        
+        <div class="hints">
+        </div>
+        
+        <div class="msContainer">
+        </div>
+        <div class="levels">
+            <ul>
+                <li><button onClick="initGame(4)">Easy</button></li>
+                <li><button onClick="initGame(8)">Medium</button></li>
+                <li><button onClick="initGame(12)">Hard</button></li>
+            </ul>
+        </div>
+
+    </div>
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h1>GAME OVER</h1>
+            <button>Play again?</button>
+        </div>
+    </div>
+    <div id="victoryModal" class="modal">
+        <div class="modal-content">
+            <h1>VICTORY</h1>
+            <button>Play again?</button>
+        </div>
+    </div>
+
+    <script src="js/util.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>
