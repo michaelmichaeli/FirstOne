@@ -94,6 +94,8 @@ function getNegCount(board, i, j) {
 }
 
 function cellMarked(ev, i, j) {
+    console.log(gGame.shownCount);
+
     if (gBoard[i][j].isShown) return;
     if (gBoard[i][j].isMarked) {
         gGame.markedCount--;
@@ -145,7 +147,6 @@ function renderCell(i, j, text) {
 }
 
 function getColorByNum(text) {
-    // debugger
     var res;
     switch (text) {
         case 1:
@@ -184,6 +185,8 @@ function logBoard(board) {
 }
 
 function cellClicked(ev, i, j) {
+    console.log(gGame.shownCount);
+
     if (gGame.firstClick) {
         populateMines(i, j);
         renderHints();
@@ -271,13 +274,43 @@ function checkGameStatus(i, j, isRightClick) {
         revealBoard();
         setTimeout(gameOver, 1000);
     }
-    if (gLevel.size ** 2 === getNonMineShownCount() + getMarkedMinesCount() + getShownMinesCount()
-        && gGame.isOn) {
+    if (gLevel.size**2 === getNonMineShownCount() + getMarkedMinesCount() + getShownMinesCount()){
+    // if (gGame.isOn) 
+        revealBoard();
+        setTimeout(gameWin, 1000);
+    }  
+    if (gLevel.mines === getMarkedMinesCount() + getShownMinesCount() && getNonMineShownCount() === getShownMinesCount()) {
+        revealBoard();
+        setTimeout(gameWin, 1000);
+    }
+    if (gLevel.size**2 - gGame.shownCount === gLevel.mines) {
+        revealBoard();
+        setTimeout(gameWin, 1000);
+    }
+    if (getShownCount() === gLevel.size**2 && gGame.isOn){
         revealBoard();
         setTimeout(gameWin, 1000);
     }
 }
 
+function getShownCount(){
+    var count = 0;
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard.length; j++) {
+            if (gBoard[i][j].isShown) count++;
+        }
+    }
+}
+
+function getShownMinesCount(){
+    var count = 0;
+    for (var i = 0; i < gBoard.length; i++) {
+        for (var j = 0; j < gBoard.length; j++) {
+            if (gBoard[i][j].isMine && gBoard[i][j].isShown) count++;
+        }
+    }
+    return count;
+}
 
 function getNonMineShownCount() {
     var count = 0;
@@ -346,10 +379,6 @@ function victoryModal() {
         initGame(8);
     }
 }
-
-
-
-
 
 function revealBoard() {
     for (var i = 0; i < gBoard.length; i++) {
