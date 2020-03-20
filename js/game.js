@@ -268,7 +268,7 @@ function checkGameStatus(i, j, isRightClick) {
         if (gGame.lives > 0) {
             if (gLevel.size**2 === getShownCount()){
                 revealBoard();
-                setTimeout(gameWin, 1000);
+                gameWin();
             }
             gGame.lives--;
             var elLive = document.querySelector(".lives ul li");
@@ -282,25 +282,25 @@ function checkGameStatus(i, j, isRightClick) {
     }
     if (gLevel.size**2 === getNonMineShownCount() + getMarkedMinesCount() + getShownMinesCount()){
         revealBoard();
-        setTimeout(gameWin, 1000);
+        gameWin();
     }  
     if (gLevel.mines === getMarkedMinesCount() + getShownMinesCount() 
         && getNonMineShownCount() === getShownMinesCount()) {
         revealBoard();
-        setTimeout(gameWin, 1000);
+        gameWin();
     }
     console.log( gLevel.size**2, ' - ' , getShownCount(), '=', gLevel.mines  );
     if (gLevel.size**2 - getShownCount() === gLevel.mines) {
         revealBoard();
-        setTimeout(gameWin, 1000);
+        gameWin();
     }
     if (getShownCount() === gLevel.size**2 && gGame.isOn){
         revealBoard();
-        setTimeout(gameWin, 1000);
+        gameWin();
     }
     if (getShownMinesCount === gLevel.mines){
         revealBoard();
-        setTimeout(gameWin, 1000);
+        gameWin();
     }
 }
 
@@ -358,17 +358,20 @@ function getShownMinesCount() {
 
 function gameWin() {
     if (!gGame.isOn) return;
+    
     for (var i = 0; i < gBoard.length; i++) {
         for (var j = 0; j < gBoard.length; j++) {
             if (gBoard[i][j].isMine) {
                 setCellShown(i, j);
-                gBoard[i][j].isMarked = true;
                 renderCell(i,j,FLAG);
             }
         }
     }
     clearTimeout(gInterval);
-    victoryModal();
+    gGame.isOn = false;
+    setTimeout(() => {
+        victoryModal();        
+    }, 2000);
 }
 
 function gameOver() {
