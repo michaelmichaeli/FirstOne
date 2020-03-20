@@ -1,11 +1,11 @@
 body {
     text-align: center;
-    background-image: linear-gradient(rgb(100, 0, 0), rgb(89, 0, 148));
+    background-image: linear-gradient(rgb(100, 0, 0), rgb(89, 0, 148), rgb(100, 0, 0));
 }
 
-table .shown{
+/* .shown{
     background-color: grey;
-}
+} */
 
 .center {
     margin-top: 50px;
@@ -26,19 +26,46 @@ table .shown{
     /* width: 50%; */
     padding: 10px;}
 
+th,
 td {
     background-color: lightgrey;
     width: 30px;
     height: 30px;
     min-width: 30px;
+    cursor: pointer; */
+    /* padding: 50px 50px;
+    /* min-height: 25px;
+    min-width: 25px;
+    font-size: 14px;
+    text-align: center;
     cursor: pointer;
+    outline: none;
+    /* color: #fff; */
+    /* background-color: #4CAF50;
+    border: none;
+    /* border-radius: 15px; */
+    box-shadow: 0 6px #999;
+    width: 30px;
+    height: 30px; */
 }
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+}
+
 .msContainer {
     margin: auto;
 }
 
 ul{
-
+    /* box-shadow: 1px 1px 50px rgb(255, 255, 255); */
 }
 
 li {
@@ -46,11 +73,13 @@ li {
     float: center;
     padding: 10px;
     margin: 10px
-    box-shadow: 1px 1px 50px rgb(255, 255, 255);
+    
 }
 table {
     margin: auto;
     box-shadow: 1px 1px 50px rgb(255, 255, 255);
+    table-layout: fixed;
+    width: 200px;
 }
 
 
@@ -61,6 +90,7 @@ table {
     width: 120px;
     float: none;
     width: 200px;
+    /* box-shadow: 1px 1px 50px rgb(255, 255, 255); */
 }
 
 .lives {
@@ -71,13 +101,13 @@ table {
     cursor: default;
     float: none;
     width: 200px;
+    /* box-shadow: 1px 1px 50px rgb(255, 255, 255); */
 }
 
 .time p {
     color: white;
     font-size: large;
     margin: 0;
-
 }
 
 time {
@@ -102,7 +132,7 @@ time {
   
   /* Modal Content/Box */
 .modal-content {
-    background-color: #548a49;
+    background-color: #62498a;
     margin: 20% auto; 
     padding: 20px;
     border: 10px solid rgb(0, 0, 0);
@@ -115,17 +145,29 @@ button {
     padding: 8px 20px;
     border-radius: 20px;
     /* margin-top: 30px; */
-    background-color: #548a49;
-    box-shadow: 1px 1px 50px rgb(255, 255, 255);
+    background-color: #55498a;
 }
 
 button:hover {
     background-color: white;
 }
 
-
 h1 {
-    text-shadow: 1px 1px 20px rgb(255, 255, 255);
+    text-shadow: 3px 3px 20px white;
     font-size: 50px;
     margin: 0px;
+}
+
+.shown{
+    background-color: grey;
+}
+
+.blinking {
+    animation: blinker 0.3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
 }
