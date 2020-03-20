@@ -145,7 +145,7 @@ function renderCell(i, j, text) {
     elCell.innerText = text;
     elCell.style.color = getColorByNum(text);
     if (gGame.hintIsOn) return
-    if (!gBoard[i][j].isMarked) elCell.classList.add("shown");
+    if (!gBoard[i][j].isMarked || gBoard[i][j].isMine) elCell.classList.add("shown");
 }
 
 function getColorByNum(text) {
@@ -195,6 +195,7 @@ function cellClicked(ev, i, j) {
         secsPassed(".timer");
     }
     if (gGame.hintIsOn) {
+        HintBlink(true);
         showHintCells(i, j);
         gGame.hintIsOn = false;
         return
@@ -278,7 +279,7 @@ function checkGameStatus(i, j, isRightClick) {
         var elLive = document.querySelector(".lives ul li");
         elLive.remove();
         revealBoard();
-        setTimeout(gameOver, 1000);
+        gameOver();
     }
     if (gLevel.size**2 === getNonMineShownCount() + getMarkedMinesCount() + getShownMinesCount()){
         revealBoard();
@@ -455,10 +456,11 @@ function getHint() {
         alert('please make first move first');
         return;
     }
-    alert('please click on unrevealed cell');
+    HintBlink(true);
+    // alert('please click on unrevealed cell');
     gGame.hintIsOn = true;
-    var elHint = document.querySelector(".hints ul li");
-    elHint.remove();
+    // var elHint = document.querySelector(".hints ul li");
+    // elHint.remove();
 }
 
 function showHintCells(i, j) {
@@ -471,6 +473,18 @@ function showHintCells(i, j) {
     setTimeout(() => {
         hideCells(negs);
     }, 1000);
+    HintBlink(false);
+    var elHint = document.querySelector(".hints ul li");
+    elHint.remove();
+}
+
+function HintBlink(start){
+    if (start === true){
+        document.querySelector(".hints").classList.add("blinking");
+    }
+    else {
+        document.querySelector(".hints").classList.remove("blinking");
+    }
 }
 
 function hideCells(cells) {
