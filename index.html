@@ -10,21 +10,27 @@
 
 <body onload="initGame(8,12)" oncontextmenu="return false;">
     <h1>Minesweeper</h1>
-    <div class="center">
+
+    
+    <div class="top">
+        <div class="undoClass">
+        </div>
         
         <div class="time">
             <p class="timer">0</p>
         </div>
-        
+
         <div class="smiley">
         </div>
-        
+
         <div class="lives">
         </div>
-        
+
         <div class="hints">
         </div>
-        
+    </div>
+
+    <div class="center">
         <div class="msContainer">
         </div>
         <div class="levels">
@@ -36,6 +42,7 @@
         </div>
 
     </div>
+
     <div id="gameOverModal" class="modal">
         <div class="modal-content">
             <h1>GAME OVER</h1>
