@@ -3,18 +3,22 @@ body {
     background-image: linear-gradient(rgb(100, 0, 0), rgb(89, 0, 148), rgb(100, 0, 0));
 }
 
-/* .shown{
-    background-color: grey;
-} */
-
-.center {
-    margin-top: 50px;
-    /* position: absolute; */
-    /* top: 40%;
-    left: 40%; */
-    /* -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); */
+.header {
+    margin: 0;
+    padding: 60px;
+    text-align: center;
+    /* background: #1abc9c; */
+    color: white;
+    font-size: 30px;
+    padding: 0;
 }
+
+.undoClass {
+    display: inline-block;
+    cursor: pointer; 
+
+}
+
 
 .msContainer {
     /* margin: 0;
@@ -32,32 +36,10 @@ td {
     width: 30px;
     height: 30px;
     min-width: 30px;
-    cursor: pointer; */
-    /* padding: 50px 50px;
-    /* min-height: 25px;
-    min-width: 25px;
-    font-size: 14px;
-    text-align: center;
-    cursor: pointer;
-    outline: none;
-    /* color: #fff; */
-    /* background-color: #4CAF50;
-    border: none;
-    /* border-radius: 15px; */
+    cursor: pointer; 
     box-shadow: 0 6px #999;
     width: 30px;
-    height: 30px; */
-}
-
-.button:hover {background-color: #3e8e41}
-
-.button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
-}
-
-
+    height: 30px; 
 }
 
 .msContainer {
@@ -65,15 +47,17 @@ td {
 }
 
 ul{
+    display: inline-flex;
+    padding: 0;
+    margin: 0;
     /* box-shadow: 1px 1px 50px rgb(255, 255, 255); */
 }
 
 li {
+    padding: 0;
+    margin: 0;
     display: inline;
     float: center;
-    padding: 10px;
-    margin: 10px
-    
 }
 table {
     margin: auto;
@@ -87,21 +71,19 @@ table {
     cursor: pointer;
     display: inline-block;
     border-radius: 30px;
-    width: 120px;
+    width: 60px;
     float: none;
     width: 200px;
-    /* box-shadow: 1px 1px 50px rgb(255, 255, 255); */
 }
 
 .lives {
     cursor: pointer;
     display: inline-block;
     border-radius: 30px;
-    width: 120px;
+    width: 60px;
     cursor: default;
     float: none;
     width: 200px;
-    /* box-shadow: 1px 1px 50px rgb(255, 255, 255); */
 }
 
 .time p {
@@ -148,9 +130,14 @@ button {
     background-color: #55498a;
 }
 
-button:hover {
-    background-color: white;
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
+
 
 h1 {
     text-shadow: 3px 3px 20px white;
